@@ -4,8 +4,9 @@ import { team } from "./data/team";
 import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
+import Team from "./pages/Team";
 import MemberDetail from "./pages/MemberDetail";
+import About from "./pages/About";
 
 export default function App() {
   const [members, setMembers] = useState([]);
@@ -14,7 +15,6 @@ export default function App() {
   const [favorites, setFavorites] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
 
-  // simulate loading data
   useEffect(() => {
     const timer = setTimeout(() => {
       setMembers(team);
@@ -23,7 +23,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // apply dark mode class
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
@@ -44,10 +43,11 @@ export default function App() {
       />
       <main className="mx-auto max-w-5xl p-6">
         <Routes>
+          <Route path="/" element={<Home memberCount={members.length} />} />
           <Route
-            path="/"
+            path="/team"
             element={
-              <Home
+              <Team
                 members={members}
                 search={search}
                 setSearch={setSearch}
@@ -57,16 +57,16 @@ export default function App() {
             }
           />
           <Route
-            path="/favorites"
+            path="/member/:id"
             element={
-              <Favorites
+              <MemberDetail
                 members={members}
                 favorites={favorites}
                 toggleFavorite={toggleFavorite}
               />
             }
           />
-          <Route path="/member/:id" element={<MemberDetail members={members} />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
     </div>

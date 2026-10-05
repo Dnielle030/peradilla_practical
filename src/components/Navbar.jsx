@@ -6,9 +6,11 @@ export default function Navbar({ darkMode, onToggleDark, favoriteCount }) {
 
   return (
     <nav className="flex items-center justify-between bg-white px-6 py-4 shadow dark:bg-gray-800">
-      <div className="flex gap-6">
-        <NavLink to="/" className={link}>Directory</NavLink>
-        <NavLink to="/favorites" className={link}>Favorites ({favoriteCount})</NavLink>
+      <div className="flex items-center gap-6">
+        <NavLink to="/" end className={link}>Home</NavLink>
+        <NavLink to="/team" className={link}>Team</NavLink>
+        <NavLink to="/about" className={link}>About</NavLink>
+        <span className="text-sm text-yellow-500">★ {favoriteCount}</span>
       </div>
       <button
         onClick={onToggleDark}
