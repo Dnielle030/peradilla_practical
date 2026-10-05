@@ -4,9 +4,10 @@ import { team } from "./data/team";
 import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
-import Team from "./pages/Team";
+import Users from "./pages/Users";
 import MemberDetail from "./pages/MemberDetail";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const [members, setMembers] = useState([]);
@@ -15,6 +16,7 @@ export default function App() {
   const [favorites, setFavorites] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
 
+  // simulate loading data
   useEffect(() => {
     const timer = setTimeout(() => {
       setMembers(team);
@@ -23,6 +25,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // apply dark mode class
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
@@ -45,9 +48,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home memberCount={members.length} />} />
           <Route
-            path="/team"
+            path="/users"
             element={
-              <Team
+              <Users
                 members={members}
                 search={search}
                 setSearch={setSearch}
@@ -67,6 +70,7 @@ export default function App() {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

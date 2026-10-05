@@ -13,10 +13,10 @@ export default function Home({ memberCount }) {
         Browse, search, and favorite the {memberCount} people on the team.
       </p>
       <Link
-        to="/team"
+        to="/users"
         className="mt-6 inline-block rounded bg-blue-500 px-5 py-2 text-white hover:bg-blue-600"
       >
-        View the Team
+        View Users
       </Link>
     </div>
   );

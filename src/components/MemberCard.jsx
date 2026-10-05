@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 export default function MemberCard({ member, isFavorite, onToggleFavorite }) {
   return (
@@ -10,13 +11,14 @@ export default function MemberCard({ member, isFavorite, onToggleFavorite }) {
         <Link to={`/member/${member.id}`} className="text-blue-500 hover:underline">
           View details
         </Link>
-        <button
+        <Button
+          variant="star"
           onClick={() => onToggleFavorite(member.id)}
-          className="text-2xl text-yellow-500"
+          className="px-1 py-0"
           aria-label="Toggle favorite"
         >
           {isFavorite ? "★" : "☆"}
-        </button>
+        </Button>
       </div>
     </div>
   );
