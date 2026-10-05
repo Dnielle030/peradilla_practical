@@ -8,9 +8,9 @@ export default function About() {
   return (
     <div className="rounded-lg bg-white p-8 shadow dark:bg-gray-800">
       <h1 className="text-3xl font-bold">About Me</h1>
-      <p className="mt-4">Hi, I'm <strong>Your Full Name</strong>.</p>
+      <p className="mt-4">Hi, I'm <strong>Danielle Peradilla</strong>.</p>
       <p className="mt-2 text-gray-500 dark:text-gray-400">
-        Write a short intro here: your course or year level, your interests, and what
+        Also known as Dan a BSIT student at CVSU, and I like to play video games. Here's what
         you learned building this app with React, Vite, Tailwind CSS, and React Router.
       </p>
       <h2 className="mt-6 text-xl font-semibold">Tech used</h2>
